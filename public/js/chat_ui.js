@@ -36,7 +36,7 @@ $(document).ready(function() {
     if (result.success) {
       message = "You are now known as " + result.name + ".";
     } else {
-      message.result.message;
+      message = result.message;
     }
     $('#messages').append(divSystemContentElement(message));
   });
@@ -56,10 +56,10 @@ $(document).ready(function() {
 
     for (var room in rooms) {
       room = room.substring(1, room.length);
-      if (room != '') {
+      if (room !== '') {
         $('#room-list').append(divEscapedContentElement(room));
       }
-    };
+    }
 
     $('#room-list div').click(function() {
       chatApp.processCommand('/join ' + $(this).text());
